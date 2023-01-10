@@ -4,21 +4,6 @@ COLORS_6 = ['red', 'blue', 'green', 'yellow', 'orange', 'purple']
 COLORS_8 = COLORS_6 + ['white', 'black']
 TURNS = 10
 
-"""
-Code Breaker (also known as Mastermind) is a board game.  The user is tasked with guessing a random code.
-The code range from 3 digits to 5 digits long, and color options can be 6 or 8, depending on the difficulty.
-This program has the user input the level of difficulty they desire and then gives them 10 turns to crack the code.
-Each time the user guesses the program will check to see if they first have any colors that are in the correct position.
-Then it will check if the have a correct color that is in the wrong position.  It will then return the hint to help the
-user crack the code.  
-Level difficulties: 
-1 - Colors 6, Codes 3, Combinations 1290
-2 - Colors 8, Codes 3, Combinations 4088
-3 - Colors 6, Codes 4, Combinations 7770
-4 - Colors 8, Codes 4, Combinations 32760
-5 - Colors 8, Codes 5, Combinations 262136
-"""
-
 
 def main():
     level = intro()
@@ -42,8 +27,9 @@ def start(number_of_colors):
 def game(correct_code, number_of_codes, number_of_colors):
     start(number_of_colors)
     win = 0
+    #loop will run based until i is equal to the number of allowed turns
     for i in range(TURNS):
-        player_code = get_player_code(number_of_codes)
+        player_code = get_player_code(number_of_codes, number_of_colors)
         hint = check_answer(correct_code, player_code, number_of_codes)
         if hint[0] == number_of_codes:
             print("You cracked the code!")
@@ -82,11 +68,23 @@ def check_answer(correct_code, player_code, number_of_codes):
 
 
 # Gets code guesses from user
-def get_player_code(number_of_codes):
+def get_player_code(number_of_codes, number_of_colors):
     player_code = []
+    #creates constant to verify the entered color
+    if number_of_colors == 6:
+        verify_color = COLORS_6
+    else:
+        verify_color = COLORS_8
+    #will ask player to enter color choice based on number of required codes
     for i in range(number_of_codes):
         color = input("Enter color " + str(i + 1) + " :")
+        #converts entry to lower case string
         color = color.lower()
+        #while loop to verify that the users entry is one of the available options
+        while color not in verify_color:
+            print("That is not a valid color entry.")
+            color = input("Enter color " + str(i + 1) + " :")
+        #once the user has entered a valid option it will add it to the players code
         player_code.append(color)
     return player_code
 
@@ -121,9 +119,13 @@ def color_convert(num):
 # Get code generates a random code based off of the difficulty
 def get_code(number_of_codes, number_of_colors):
     code = []
+    #loops for number of codes needed for level of difficulty
     for i in range(number_of_codes):
+        #generates random number based on number of colors
         num = random.randint(1, number_of_colors)
+        #converts the random number into a color
         color = color_convert(num)
+        #adds color to code list
         code.append(color)
     return code
 
