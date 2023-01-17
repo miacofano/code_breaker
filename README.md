@@ -9,11 +9,26 @@ Then it will check if the have a correct color that is in the wrong position.  I
 user crack the code.  
 
 Level difficulties: 
-1 - Colors 6, Codes 3, Combinations 1290
-2 - Colors 8, Codes 3, Combinations 4088
-3 - Colors 6, Codes 4, Combinations 7770
-4 - Colors 8, Codes 4, Combinations 32760
-5 - Colors 8, Codes 5, Combinations 262136
+easy
+1 - Colors 4, Codes 4, Combinations 256
+2 - Colors 5, Codes 4, Combinations 625
+
+medium
+3 - Colors 6, Codes 4, Combinations 1,296
+4 - Colors 7, Codes 4, Combinations 2,401
+5 - Colors 4, Codes 6, Combinations 4,096
+6 - Colors 5, Codes 6, Combinations 15,625
+
+hard
+7 - Colors 6, Codes 6, Combinations 46,656
+8 - Colors 4, Codes 8, Combinations 65,536
+9 - Colors 7, Codes 6, Combinations 117,649
+10 - Colors 5, Codes 8, Combinations 390,625
+
+extreme
+11 - Colors 6, Codes 8, Combinations 1,679,616
+12 - Colors 7, Codes 8, Combinations 5,764,801
+
 
 [Updates planned for 2023]
 1 - complete answer entry verification.  If the user types an answer that is not an available option or miss spelled it will relay an error message and allow user to guess again.

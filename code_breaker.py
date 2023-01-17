@@ -1,7 +1,9 @@
 import random
 
-COLORS_6 = ['red', 'blue', 'green', 'yellow', 'orange', 'purple']
-COLORS_8 = COLORS_6 + ['white', 'black']
+COLORS_4 = ['red', 'blue', 'green', 'yellow']
+COLORS_5 = COLORS_4 + ['orange']
+COLORS_6 = COLORS_5 + ['purple']
+COLORS_7 = COLORS_6 + ['brown']
 TURNS = 10
 
 
@@ -17,10 +19,14 @@ def main():
 def start(number_of_colors):
     print("To play enter one color at a time.")
     print("Your color options are:")
-    if number_of_colors == 6:
+    if number_of_colors == 4:
+        print_list(COLORS_4)
+    elif number_of_colors == 5:
+        print_list(COLORS_5)
+    elif number_of_colors == 6:
         print_list(COLORS_6)
     else:
-        print_list(COLORS_8)
+        print_list(COLORS_7)
 
 
 # The basic operation of the game
@@ -71,10 +77,14 @@ def check_answer(correct_code, player_code, number_of_codes):
 def get_player_code(number_of_codes, number_of_colors):
     player_code = []
     #creates constant to verify the entered color
-    if number_of_colors == 6:
+    if number_of_colors == 4:
+        verify_color = COLORS_4
+    elif number_of_colors == 5:
+        verify_color = COLORS_5
+    elif number_of_colors == 6:
         verify_color = COLORS_6
     else:
-        verify_color = COLORS_8
+        verify_color = COLORS_7
     #will ask player to enter color choice based on number of required codes
     for i in range(number_of_codes):
         color = input("Enter color " + str(i + 1) + " :")
@@ -109,10 +119,8 @@ def color_convert(num):
         num = 'orange'
     elif num == 6:
         num = 'purple'
-    elif num == 7:
-        num = 'white'
     else:
-        num = 'black'
+        num = 'brown'
     return num
 
 
@@ -132,21 +140,25 @@ def get_code(number_of_codes, number_of_colors):
 
 # Dif. of codes takes users desired level and returns the number of codes they have to guess
 def difficulty_codes(level):
-    if level == 1 or level == 2:
-        number_of_codes = 3
-    elif level == 3 or level == 4:
+    if level >= 1 and level <= 4:
         number_of_codes = 4
+    elif level >= 5 and level <= 7 or level == 9:
+        number_of_codes = 6
     else:
-        number_of_codes = 5
+        number_of_codes = 8
     return number_of_codes
 
 
 # Dif. of colors takes the users desired level and returns the number of colors they can choose from
 def difficulty_colors(level):
-    if level == 1 or level == 3:
+    if level == 1 or level == 5 or level == 8:
+        number_of_colors = 4
+    elif level == 2 or level == 6 or level == 10:
+        number_of_colors = 5
+    elif level == 3 or level == 7 or level == 11:
         number_of_colors = 6
     else:
-        number_of_colors = 8
+        number_of_colors = 7
     return number_of_colors
 
 
@@ -154,10 +166,10 @@ def difficulty_colors(level):
 # The user must choose between the 5 levels of difficulty
 def intro():
     print("Welcome to Crack the Code!")
-    level = int(input("Enter level of difficulty (levels 1-5): "))
-    while level > 5 or level < 1:
+    level = int(input("Enter level of difficulty (levels 1-12): "))
+    while level > 12 or level < 1:
         print("That is not a valid level entry.")
-        level = int(input("Enter level of difficulty (levels 1-5): "))
+        level = int(input("Enter level of difficulty (levels 1-12): "))
     print("Can you crack the level " + str(level) + " code?")
     return level
 
