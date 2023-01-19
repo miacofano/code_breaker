@@ -8,7 +8,7 @@
 </head>
 <body class = "flex">
     <div class = "block">
-        <h2>Register</h2>
+        <h2>New User</h2>
         <form action = "/user/register" method = "post">
             <div class = "error">
                 {% with messages = get_flashed_messages(category_filter=['register']) %}
@@ -41,7 +41,7 @@
         </form>
     </div>
     <div class = "block">
-        <h2>Login</h2>
+        <h2>Login User</h2>
         <form action = "/user/login" method = "post">
             <div class = "error">
                 {% with messages = get_flashed_messages(category_filter=['login']) %}

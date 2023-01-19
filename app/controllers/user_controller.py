@@ -26,7 +26,7 @@ def register_user():
     session['user_id'] = user_id
     return redirect('/dashboard')
 
-#Post method for login in new user
+#Post method for login in new user 
 @app.route('/user/login', methods=['POST'])
 def login_user():
     user = User.get_by_email(request.form)
