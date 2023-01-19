@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Code Breaker Menu</title>
+</head>
+<body class = "block">
+    <div class = "header">
+        <div class = "title">
+            <h1> Welcome {{user.user_name}} </h1>
+        </div>
+        <div class = "nav">
+            <a href = "/view/user/{{user.id}}"> {{user.user_name}} </a>
+            <a href = "/logout" class = "btn"> Logout </a>
+        </div>
+    </div>
+    <div class = "content">
+
+    </div>
+</body>
+</html>
