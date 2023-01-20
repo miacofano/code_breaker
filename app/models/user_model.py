@@ -6,7 +6,7 @@ import re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 #shorthand for database
-db = 'codebreaker_database'
+db = 'codebreaker_schema'
 
 #defines the data required for User class
 class User:

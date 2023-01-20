@@ -12,12 +12,31 @@
             <h1> {{user.user_name}} </h1>
         </div>
         <div class = "nav">
-            <a href = "/view/user/{{user.id}}"> {{user.user_name}} </a>
+            <a href = "/view/user/{{user.id}}"> Profile </a>
             <a href = "/logout" class = "btn"> Logout </a>
         </div>
     </div>
     <div class = "content">
-
+        <form action = "/game/level" method = "post">
+            <div>
+                <label for = "level"> Level </label>
+                <select id = "level" name = "level">
+                    <option> level 1 </option>
+                    <option> level 2 </option>
+                    <option> level 3 </option>
+                    <option> level 4 </option>
+                    <option> level 5 </option>
+                    <option> level 6 </option>
+                    <option> level 7 </option>
+                    <option> level 8 </option>
+                    <option> level 9 </option>
+                </select>
+                <input type = "hidden" name = "user_id" value = "{{session['user_id']}}" />
+                <div>
+                    <input type = "submit" name = "Play">
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>
